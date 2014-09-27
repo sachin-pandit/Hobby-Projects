@@ -1,0 +1,1 @@
+gcc -Wall -g main.c freq_calc.c mergesort.c cdll.c huffman.c interface.c

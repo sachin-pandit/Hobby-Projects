@@ -1,0 +1,25 @@
+extern int a, b;
+extern char c;
+
+extern flight_control(){
+	
+	while( c != 'q' ){
+
+		c = getchar();
+		if( c == 's' ){
+			b += 20;
+		}
+
+		else if( c == 'w' ){
+			b -= 20;
+		}
+
+		else if( c == 'd' ){
+			a += 20;
+		}
+
+		else if( c == 'a' ){
+			a -= 20;
+		}
+	}
+}

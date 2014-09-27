@@ -1,0 +1,152 @@
+<html>
+
+<head>
+	<style type="text/css">
+		a.five:link 	  {color:green;	text-decoration:none		;	font-size:150%	}
+		a.five:visited {color:blue;	text-decoration:none		; 	font-size:150%	}
+		a.five:hover {color:green;	text-decoration:underline	; 	font-size:150%	}
+
+		h4.four { color:red ; font-size : 150%}
+		h5.five { color:purple ; font-size : 120% }
+
+		p.para { color : black ; font-size:150% }
+	</style>
+
+<body>
+
+<!-------------------------------------------------------------------------------------------------------------------------------------------->
+	<h1  align="center" ; style="color:green "><a name="home" > Click on the link below to get more information about the program </a></h1>
+	</br></br>
+	<a href= "#how" ; class = "five" >1) HOW IT WORKS & SOME CONSTRAINTS </a>
+	</br></br>
+	<a href = "#steps" ;   class = "five" >2) STEPS TO BE FOLLOWED TO RUN THE PROGRAM ( IN LINUX ENVIRONMENT )</a>
+	</br></br>
+	<a href = "#features" ; class = "five">3) FEATURES OF THIS PROGRAM </a>
+	</br></br>
+	<a href = "#contents" ;  class = "five" >4) CONTENTS OF THE FOLDER "resultContainer " </a>
+	</br></br>
+	<a href = "#ps" ;  class = "five">5) PS </a>
+	</br></br>
+	<a href = "#ex" ; class = "five">6) WARNING </a>
+	</br></br>
+	</br>
+	<hr>	
+	</br>
+
+
+
+<!--1) ------------------------------------------------------------------------------------------------------------------------------------------>
+
+	<h4 class="four" ><a name="how">1) HOW IT WORKS & SOME CONSTRAINTS : </a></h3>
+	<p class="para">"resultView" is a java program to display the result using JTable . It uses swing, libraries of JTable and I/O stream</br></br>
+	"resultView.java" takes the input from a text file, you can change the text file if you want, </br>
+	but the program works only for well defined pattern found in that text file. </br></br>
+	you can copy paste the content from a PDF in that text file, </br>
+	but you have to edit it manually ( the PDF_EXTRACTER is temporarily not available , i am  working on it & sorry for the inconvinience  ).</br>
+	so its upto you to place the right contents in the right text file.</br>
+	
+	information about the sources used is found in the java program itself.
+	</p>
+	</br>
+	<a href="#home"> HOME </a>
+	</br>
+	<hr>	
+	</br>
+
+	
+<!--2) ------------------------------------------------------------------------------------------------------------------------------------------>
+
+	<h4 class="four" ><a name="steps" >2) STEPS TO BE FOLLOWED TO RUN THE PROGRAM 
+		( IN LINUX ENVIRONMENT ):  </a></h3>
+	<h5 class="five"> 2.1) IF JAVA IS ALREADY INSTALLED : </h5>
+	<p class="para"> 
+	1) Download the zip file(result), extract that to a folder of your choice. </br>
+	2) run a shell script "runMEAfterGiving755Permission.sh" after giving executable permission,</br>
+	</p>
+	  <p style="color:green"> HOW TO GIVE EXECUTABLE PERMISSION TO A SHELL SCRIPT : </p>
+   	  <p class="para">	1) Open the Terminal  </br>
+   		2) Go to the folder "result" by using change directory(cd). Example "cd /home/sachin/result" in my computer </br>
+   		3) type "chmod 755 runMeAfterGiving755Permission.sh" ( without quotes ofcourse ;) )</br>
+   	3) run the script by typing ./runMeAfterGiving755Permission.sh</br>
+   	
+
+	<h5 class="five" >2.2)IF JAVA NOT INSTALLED :   </h5>
+	
+	<p class="para"> 1) open the terminal </br>
+	2) type "sudo apt-get install openjdk-6-jdk" (without quotes) and press enter, it will take few minutes to download and install</br>
+	3) goto STEP (1) of IF JAVA IS ALREADY INSTALLED</br>
+	</p>
+	</br>
+	<a href="#home"> HOME </a>
+	</br>
+	<hr>	
+	</br>
+	
+<!--3) ------------------------------------------------------------------------------------------------------------------------------------------>
+
+	<h4 class="four" ><a name="features" >3) FEATURES OF THIS PROGRAM </a> </h4>
+	<p class="para" > 1) You can sort the data just by clicking on the header of the JTable </br>
+	2) Sort works for GPA and for all Subject, except the Roll.NO ( as it takes data in the form of a string )</br>
+	3) You can actually know who is the topper of the class ( except if he/she is a 10 pointer ) , </br>
+				 	and topper in each subject .</br>
+	</p>
+	</br>
+	<a href="#home"> HOME </a>
+	</br>
+	<hr>	
+	</br>
+
+<!--4) ------------------------------------------------------------------------------------------------------------------------------------------>
+	
+	<h4 class="four" > <a name="contents"> 4)CONTENTS OF THE FOLDER "resultContainer " </a></h4>
+	<p class="para" > 1) README.txt -> just a few information and instruction about the program</br>
+	2) run.bat -> Only for WINDOWS users, run this file to see the output</br>
+	3) runMeAfterGiving755Permission.sh -> Only for LINUX users , run this file to see the output</br>
+	4) sem3.txt -> A text file which contains 3rd sem(2011) result of CS B</br>
+	5) sem4.txt -> A text file which contains 4th sem(2011) result of CS B</br>
+	6) Folder "result" -> contains the java program</br>
+	7) Some snap shots of the program.</br>
+	</p>
+	</br>
+	<a href="#home"> HOME </a>
+	</br>
+	<hr>	
+	</br>
+
+<!--5) ------------------------------------------------------------------------------------------------------------------------------------------>
+
+	<h4 class="four" ><a name="ps">5) POST SCRIPT : </a></h5>
+	<p class="para" > my apologies to all if the displayed result is incorrect,and it may show error and warning</br>
+     in some system( if database is not upto date ) . i'll try to fix it if possible .</br>
+ 
+     and change the header of the table,i have included the subject of 4th sem in the header...</br>
+     i will update that as soon as we get the 5th sem results...</br>
+	</p>
+	</br>
+	<a href="#home"> HOME </a>
+	</br>
+	<hr>	
+	</br>
+	
+<!--6) ------------------------------------------------------------------------------------------------------------------------------------------>
+
+	<h4 class="four"><a name="ex" > 6) WARNING </a></h5>
+	<p class="para" > This package comes with ABSOLUTELY NO WARRANTY </br>
+					and can be distributed or shared among your freinds freely </br>
+					without subjecting to any modification, or  with modification</br>
+					under different authorization. The author holds no responsibilty</br>
+					of the outcome of the resource and its correctness. </br>
+	</p>
+	</br>
+	<a href="#home"> HOME </a>
+	</br>
+	<hr>	
+	</br>
+
+	<h4 class="four" style="color:blue"> Thank You </h4>
+	<h5 class="five"><a href="." class ="five"> Click this to go to the resultViewer folder </a></h5>
+ </body>
+ </html>
+
+
+  

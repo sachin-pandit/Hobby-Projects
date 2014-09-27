@@ -1,0 +1,434 @@
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2011.5.3)  21 MAY 2011 18:24
+entering extended mode
+ %&-line parsing enabled.
+**t1.tex
+(./t1.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8h> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, loaded.
+(/usr/share/texmf-texlive/tex/latex/base/article.cls
+Document Class: article 2005/09/16 v1.4f Standard LaTeX document class
+(/usr/share/texmf-texlive/tex/latex/base/size10.clo
+File: size10.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texmf-texlive/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen103
+)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2006/02/20 v1.4 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in pdf mode detected.
+)
+(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
+Package: graphics 2006/02/20 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-texlive/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/etc/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 90.
+
+(/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2007/01/08 v0.04d Graphics/color for pdfTeX
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen104
+\Gin@req@width=\dimen105
+)
+(/usr/share/texmf-texlive/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2007/02/07 v6.75r Hypertext links for LaTeX
+\@linkdim=\dimen106
+\Hy@linkcounter=\count88
+\Hy@pagecounter=\count89
+
+(/usr/share/texmf-texlive/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2007/02/07 v6.75r Hyperref: PDFDocEncoding definition (HO)
+)
+(/etc/texmf/tex/latex/config/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+(/usr/share/texmf-texlive/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2006/08/22 v2.4 Connects package keyval with LaTeX options (
+HO)
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 2238.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 2238.
+Package hyperref Info: Hyper figures OFF on input line 2288.
+Package hyperref Info: Link nesting OFF on input line 2293.
+Package hyperref Info: Hyper index ON on input line 2296.
+Package hyperref Info: Plain pages OFF on input line 2303.
+Package hyperref Info: Backreferencing OFF on input line 2308.
+
+Implicit mode ON; LaTeX internals redefined
+Package hyperref Info: Bookmarks ON on input line 2444.
+(/usr/share/texmf-texlive/tex/latex/ltxmisc/url.sty
+\Urlmuskip=\muskip10
+Package: url 2005/06/27  ver 3.2  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 2599.
+\Fld@menulength=\count90
+\Field@Width=\dimen107
+\Fld@charsize=\dimen108
+\Choice@toks=\toks15
+\Field@toks=\toks16
+Package hyperref Info: Hyper figures OFF on input line 3102.
+Package hyperref Info: Link nesting OFF on input line 3107.
+Package hyperref Info: Hyper index ON on input line 3110.
+Package hyperref Info: backreferencing OFF on input line 3117.
+Package hyperref Info: Link coloring ON on input line 3120.
+\Hy@abspage=\count91
+\c@Item=\count92
+\c@Hfootnote=\count93
+)
+*hyperref using default driver hpdftex*
+(/usr/share/texmf-texlive/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2007/02/07 v6.75r Hyperref driver for pdfTeX
+\Fld@listcount=\count94
+)
+(/usr/share/texmf/tex/latex/lgrind/lgrind.sty
+Package: lgrind 2002/01/28 v3.67 LGrind environment and supporting stuff
+\lc@unt=\count95
+\ln@xt=\count96
+\LGnuminterval=\count97
+\LGindent=\skip43
+\LGsloppy=\skip44
+\procbox=\box26
+\ls@far=\box27
+\tb@x=\box28
+\TBw@d=\dimen109
+\@ts=\dimen110
+)
+(/usr/share/texmf-texlive/tex/latex/algorithm2e/algorithm2e.sty
+Package: algorithm2e 2005/10/04 v3.9 algorithms environments
+\c@AlgoLine=\count98
+
+(/usr/share/texmf-texlive/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texmf-texlive/tex/latex/tools/xspace.sty
+Package: xspace 2006/05/08 v1.12 Space after command names (DPC,MH)
+)
+********************************************************
+Package `algorithm2e' Release 3.9 -- october 04 2005 --
+- algorithm2e-announce@lirmm.fr mailing list for announcement about releases
+- algorithm2e-discussion@lirmm.fr mailing list for discussion about package
+subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
+- Author: Christophe Fiorio (fiorio@lirmm.fr)
+********************************************************
+\skiptotal=\skip45
+\skiprule=\skip46
+\skiphlne=\skip47
+\skiptext=\skip48
+\skiplength=\skip49
+\algomargin=\skip50
+\skipalgocfslide=\skip51
+\algowidth=\dimen111
+\inoutsize=\dimen112
+\inoutline=\dimen113
+\algocf@inoutbox=\box29
+\algocf@inputbox=\box30
+\AlCapSkip=\skip52
+\AlCapHSkip=\skip53
+\algocf@capbox=\box31
+\c@algocfline=\count99
+\c@algocf=\count100
+\algocf@algoframe=\box32
+\algocf@algobox=\box33
+) (./t1.aux)
+\openout1 = `t1.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+ (/usr/share/texmf-texlive/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(/etc/texmf/tex/latex/config/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+Package hyperref Info: Link coloring ON on input line 10.
+
+(/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
+Package: nameref 2006/12/27 v2.28 Cross-referencing by name of section
+
+(/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty
+Package: refcount 2006/02/20 v3.0 Data extraction from references (HO)
+)
+\c@section@level=\count101
+)
+LaTeX Info: Redefining \ref on input line 10.
+LaTeX Info: Redefining \pageref on input line 10.
+ (./t1.out)
+(./t1.out)
+\@outlinefile=\write3
+\openout3 = `t1.out'.
+
+ <logo.png, id=55, 459.7175pt x 379.4175pt>
+File: logo.png Graphic file (type png)
+ <use logo.png>
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 36.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 36.
+
+<vtu.png, id=56, 210.7875pt x 219.82124pt>
+File: vtu.png Graphic file (type png)
+ <use vtu.png> [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logo.png (PNG copy)> <./
+vtu.png>] (./t1.toc)
+\tf@toc=\write4
+\openout4 = `t1.toc'.
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 79--88
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--90
+
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 93--94
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--96
+
+ []
+
+[4]
+Package hyperref Info: bookmark level for unknown algocf defaults to 0 on input
+ line 119.
+
+Underfull \hbox (badness 10000) detected at line 120
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 139
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 162
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 184
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 206
+[][]
+ []
+
+[5] [6]
+Underfull \hbox (badness 10000) detected at line 234
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 252
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 267
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 288
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 307
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 348
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 378
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 433
+[][]
+ []
+
+[7] [8] [9] (./finalmines.tex (LGround: finalmines.cpp)
+LaTeX Font Info:    Try loading font information for OMS+cmss on input line 4.
+LaTeX Font Info:    No file OMScmss.fd. on input line 4.
+
+
+LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbraceleft' on input line 4.
+
+
+Overfull \hbox (16.82004pt too wide) detected at line 7
+ [] []
+ []
+
+
+Overfull \hbox (171.60315pt too wide) detected at line 8
+ [] []
+ []
+
+
+Overfull \hbox (33.74228pt too wide) detected at line 14
+ [] []
+ []
+
+[10]) (./finallc.tex (LGround: finallcf.c)
+Underfull \hbox (badness 10000) in paragraph at lines 448--3
+
+ []
+
+
+Overfull \hbox (109.91441pt too wide) detected at line 8
+ [] []
+ []
+
+
+Overfull \hbox (9.37874pt too wide) detected at line 19
+ [] []
+ []
+
+
+Overfull \hbox (45.15656pt too wide) detected at line 22
+ [] []
+ []
+
+
+Overfull \hbox (79.96214pt too wide) detected at line 25
+ [] []
+ []
+
+[11]) [12] <l6.png, id=252, 1027.84pt x 456.70625pt>
+File: l6.png Graphic file (type png)
+ <use l6.png>
+<l7.png, id=253, 1027.84pt x 409.53pt>
+File: l7.png Graphic file (type png)
+ <use l7.png>
+Overfull \hbox (66.12872pt too wide) in paragraph at lines 473--477
+[][] 
+ []
+
+[13 <./l6.png (PNG copy)> <./l7.png (PNG copy)>]
+<m1.png, id=259, 1027.84pt x 224.84pt>
+File: m1.png Graphic file (type png)
+ <use m1.png>
+<m2.png, id=260, 645.41125pt x 434.62375pt>
+File: m2.png Graphic file (type png)
+ <use m2.png>
+<m4.png, id=261, 1027.84pt x 330.23375pt>
+File: m4.png Graphic file (type png)
+ <use m4.png>
+Overfull \hbox (66.12872pt too wide) in paragraph at lines 504--508
+[][] 
+ []
+
+[14 <./m1.png (PNG copy)> <./m2.png (PNG copy)> <./m4.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 517--518
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 519--531
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 532--534
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 535--536
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 537--543
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 544--549
+
+ []
+
+[15] [16] (./t1.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 3840 strings out of 95086
+ 51320 string characters out of 1183256
+ 139634 words of memory out of 1500000
+ 6842 multiletter control sequences out of 10000+50000
+ 6588 words of font info for 24 fonts, out of 1200000 for 2000
+ 28 hyphenation exceptions out of 8191
+ 25i,13n,38p,792b,409s stack positions out of 5000i,500n,6000p,200000b,5000s
+</usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmbx10.pfb></usr/share/texmf
+-texlive/fonts/type1/bluesky/cm/cmbx12.pfb></usr/share/texmf-texlive/fonts/type
+1/bluesky/cm/cmbx7.pfb></usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmcsc10
+.pfb></usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmmi10.pfb></usr/share/te
+xmf-texlive/fonts/type1/bluesky/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/ty
+pe1/bluesky/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmss10
+.pfb></usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/te
+xmf-texlive/fonts/type1/bluesky/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/t
+ype1/bluesky/cm/cmtt10.pfb>
+Output written on t1.pdf (16 pages, 431284 bytes).
+PDF statistics:
+ 342 PDF objects out of 1000 (max. 8388607)
+ 150 named destinations out of 1000 (max. 131072)
+ 148 words of extra memory for PDF output out of 10000 (max. 10000000)
+

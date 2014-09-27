@@ -1,0 +1,24 @@
+extern char c;
+
+extern objects_top(){
+	int i = 400, j = 10;
+	int off = 10;
+	
+	while( c != 'q' ){
+		cleardevice();
+		call_flight();
+		rectangle( i, j, i+off, j+off );
+		if( i < off )
+			i = 400;
+		i -= off;
+		
+		sleep(2);
+	}
+} 
+
+void objects(){
+	while( c != 'q'){
+		objects_top(c);
+	}
+}
+

@@ -1,0 +1,533 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+
+//zone priorities
+#define SAFE 2
+#define DRAW SAFE-1
+#define UNSAFE DRAW-1
+
+#define UNSTEPPED -1
+//zone priorities
+
+#define SWAP(A, B) {temp = *A; *A = *B; *B = temp;}
+
+//function constants
+#define MAIN 1
+#define GAMEPLAY 2
+//function constants
+
+//standard colour codes
+#define RED "\033[22;41m"
+#define BLUE "\033[22;44m"
+#define WHITE "\033[22;37m"
+#define LIGHT_BLUE "\033[22;46m"
+#define LIGHT_BROWN "\033[22;43m"
+#define RESET_COLOR "\e[m"
+//standard colour codes
+
+int *zone,          //Array - zone board
+  *board;      //Array - game board
+
+int x,        //
+  y,          //sub-units
+  z,          //
+  L;          //Length of the game board
+
+
+//*************UNUSED*************//
+char prompt()
+{
+  char dummy;
+  
+  dummy = getchar();
+
+  return (dummy);
+}
+//************UNUSED*************//
+
+//sorts the three sub-units
+void sort_inputs(int *x, int *y, int *z)
+{
+	int temp;
+
+	if(*x > *y)
+		SWAP(x, y);	
+	if(*y > *z)
+		SWAP(y, z);
+	if(*x > *y)
+		SWAP(x, y);
+
+	//printf("x : %d\ty : %d\tz : %d\n", *x, *y, *z);
+}
+
+
+//checking the validity of inputs
+int check_inputs()
+{
+  int valid = 1;
+  
+  if(
+     !(L >= 4*z)                    //Board length should be greater than 4 times 
+                                    //the greatest sub-unit
+     ||
+     (x <= 1)                       //no sub-unit shall be unity
+     ||
+     (x == y || x == z || y == z)   //sub-units should be distinct
+     )
+    valid = 0;
+
+  if(valid == 0)
+    printf("Invalid inputs\n");
+  
+  return (valid);
+}
+
+//how many among the three sub-units can be selected
+int option_limit(int i)
+{
+  int limit;
+
+  //only (x) : 1 ~ only (x,y) : 2 ~ all (x,y,z) : 3 ~ none () ~ 0
+  limit = (i+x <= L) + (i+y <= L) + (i+z <= L);
+  //printf("\nlimit = %d\n\n", limit);
+
+  return (limit);
+}
+
+//zone to which the zone-value maps to
+int ZONE(int Zone)
+{
+  if(Zone < 0)
+    return (UNSTEPPED);
+  if(Zone < 10)
+    return (SAFE);
+  if(Zone < 100)
+    return (DRAW);
+  return (UNSAFE);
+}
+
+//calculate the priority of the zones to which entering is allowed
+int priority(int Zone1, int Zone2, int Zone3)
+{
+  return (
+	  (Zone1 >= UNSAFE)*pow(10, Zone1) 
+	  +
+	  (Zone2 >= UNSAFE)*pow(10, Zone2) 
+	  +
+	  (Zone3 >= UNSAFE)*pow(10, Zone3)
+	  );
+
+  /*
+  priority map:
+
+  the higher the value, the lower the priority
+  //
+  single choice:
+  S(1U) - 1  
+  D(1D) - 10
+  U(1S) - 100
+
+  //
+  double choice:
+  S(2U) - 2
+  
+  D(1D,1U) - 11
+  D(2D) - 20
+
+  U(1S,1U) - 101
+  U(1S,1D) - 110
+  U(2S) - 200
+
+  //triple choice:
+  S(3U) - 3
+  
+  D(1D,2U) - 12
+  D(2D,1U) - 21
+  D(3D) - 30
+
+  U(1S,2U) - 102
+  U(1S,1D,1U) - 111
+  U(1S,2D) - 120
+  U(2S,1U) - 201
+  U(2S,1D) - 210
+  U(3S) - 300
+  */
+
+}
+
+//set the zone with appropriate priority, to which each step of the game belongs to
+void mark_zones()
+{
+  int 
+    i;     //index
+
+  //printf("\nin mark_zones:\narg1 = %d\targ2 = %d\targ3 = %d\targ4 = %d\n", x, y, z, L);
+
+  zone[L-1] = priority(DRAW, UNSAFE-1, UNSAFE-1);
+  
+  for(i = L-1; i > L-x; i--)
+    zone[i-1] = priority(UNSAFE, UNSAFE-1, UNSAFE-1);
+    
+  zone[L-x-1] = priority(DRAW, UNSAFE-1, UNSAFE-1);
+  i--;
+  
+  for( ; i > L-y; i--)
+    zone[i-1] = priority(ZONE(zone[i-1+x]), UNSAFE-1, UNSAFE-1);
+
+  for( ; i > L-z; i--)
+    zone[i-1] = priority(ZONE(zone[i-1+x]), ZONE(zone[i-1+y]), UNSAFE-1);
+  
+  for( ; i >= x; i--)
+    zone[i-1] = priority(ZONE(zone[i-1+x]), ZONE(zone[i-1+y]), ZONE(zone[i-1+z]));
+  
+  for( ; i > 0; i--)
+    zone[i-1] = UNSTEPPED;
+  
+  
+  for(i = x+1; i < y && i < z && i < 2*x; i++)
+    zone[i-1] = UNSTEPPED;
+  
+}
+
+//prints the table of steps with their respective zones marked in colour
+void print_zones()
+{
+  int i;
+  
+  printf("\n\n");
+  printf(BLUE "SAFE" RESET_COLOR "\n");
+  printf(RED "UNSAFE" RESET_COLOR "\n");
+  printf(WHITE "DRAW" RESET_COLOR "\n\n");
+  
+  for(i = 0; i < L; i++){
+    if(ZONE(zone[i]) == SAFE)
+      printf(BLUE "%3d", i+1);
+    if(ZONE(zone[i]) == UNSAFE)
+      printf(RED "%3d", i+1);
+    if(ZONE(zone[i]) == DRAW)
+      printf(WHITE "%3d", i+1);
+    if(zone[i] == UNSTEPPED)
+      printf("   ");
+    printf(RESET_COLOR);
+    printf("|");
+
+    if((i+1)%10 == 0 || i == L-1)
+      printf("\n");
+  }
+}
+
+
+//***********UNUSED*************//
+//a user-prompt for asking the human player's next move
+int ask_pos(int lim, char auth)
+{
+  int step = 0;
+  
+  if(lim == 0)
+    return (-1);
+
+  printf("Your turn!\n");
+  
+  while(step < 1 || step > lim){
+    printf("You have only these options:\n");
+    if(lim >= 1)
+      printf("(1)%d\t", x);
+    if(lim >= 2)
+      printf("(2)%d\t", y);
+    if(lim > 2)
+      printf("(3)%d\t", z);
+    printf("\n");
+    scanf("%d", &step);
+  }
+  
+  if(step == 1)
+    step = x;
+  else if(step == 2)
+    step = y;
+  else
+    step = z;
+
+  return (step);
+}
+//************UNUSED*************//
+
+
+//updation of the game board after a move has occured
+void update_board(int step, int player, int *pos)
+{
+  int i = 0;
+  
+  for(i = *pos; i < *pos+step; i++)
+    board[i] = player;
+
+  *pos += step;
+}
+
+//interleaved display
+char display(int pos, int caller)
+{
+  int i, distance = 70, j, z = 0;
+  char auth;
+
+  if(caller == MAIN)
+    printf("End");
+  else if(caller == GAMEPLAY)
+    printf("Current");
+  
+  printf(" position:%3d\nBoard:", pos);
+
+  for(j = 0; j < distance-6; j++)
+    printf(" ");
+  printf("Zones:\n");
+  
+  for(i = 0; i < pos; i++){
+    //board
+    if(board[i] == 1)
+      printf(LIGHT_BLUE "%3d",i+1);
+    else
+      printf(LIGHT_BROWN "%3d",i+1);
+    
+    printf(RESET_COLOR "|");
+    //board
+
+    if((i+1)%10 == 0 || i == L-1){
+      //zone
+      for(j = ((i%10)*4 + 4); j < distance; j++)
+	printf(" ");
+      
+      for(j = 0; j < 10 && z < L; j++, z++){
+	if(ZONE(zone[z]) == SAFE)
+	  printf(BLUE "%3d", z+1);
+	if(ZONE(zone[z]) == UNSAFE)
+	  printf(RED "%3d", z+1);
+	if(ZONE(zone[z]) == DRAW)
+	  printf(WHITE "%3d", z+1);
+	if(zone[z] == UNSTEPPED)
+	  printf("   ");
+	printf(RESET_COLOR);
+	printf("|");
+      }	
+      printf("\n");
+    }
+  }
+  
+  for( ; i < L; i++){
+    printf("%3d|", i+1);
+    
+    if((i+1)%10 == 0 || i == L-1){
+      for(j = ((i%10)*4 + 4); j < distance; j++)
+	printf(" ");
+      
+      for(j = 0; j < 10 && z < L; j++, z++){
+	if(ZONE(zone[z]) == SAFE)
+	  printf(BLUE "%3d", z+1);
+	if(ZONE(zone[z]) == UNSAFE)
+	  printf(RED "%3d", z+1);
+	if(ZONE(zone[z]) == DRAW)
+	  printf(WHITE "%3d", z+1);
+	if(zone[z] == UNSTEPPED)
+	  printf("   ");
+	printf(RESET_COLOR);
+	printf("|");
+      }	
+      printf("\n");
+    }
+  }
+
+  auth = prompt();
+}
+
+
+//for displaying the current status of the game board
+char board_display(int pos, int caller)
+{
+  int i;
+  char auth;
+
+  if(caller == MAIN)
+    printf("End");
+  else if(caller == GAMEPLAY)
+    printf("Current");
+
+  printf(" position:%3d\nBoard:\n", pos);
+  for(i = 0; i < pos; i++){
+    if(board[i] == 1)
+      printf(LIGHT_BLUE "%3d",i+1);
+    else
+      printf(LIGHT_BROWN "%3d",i+1);
+    
+    printf(RESET_COLOR "|");
+    if((i+1)%10 == 0)
+      printf("\n");
+  }
+  
+  for( ; i < L; i++){
+    printf("%3d|", i+1);
+    
+    if((i+1)%10 == 0 || i == L-1)
+      printf("\n");
+  }
+
+  auth = prompt();
+}
+
+//a prompt for computer to ask its next move
+int get_pos(int lim, int pos, char auth)
+{
+  int step;
+
+  if(lim == 0)
+    return (-1);
+
+  step = x;
+  
+  if(lim == 3)
+    step = z;
+  if(lim >= 2)
+    if(zone[pos+y-1] < zone[pos+step-1])
+      step = y;
+  if(lim > 1)
+    if(zone[pos+x-1] < zone[pos+step-1])
+      step = x;
+  
+  return (step);
+}
+
+//handles the events occuring during the game
+int gameplay()
+{
+  int 
+    i, 
+    lim, 
+    comp2 = 2, 
+    board_pos = 0, 
+    flag = 1,
+    step;
+
+  char auth;
+
+  //system("clear");
+
+  /*
+  printf("What do you want to play?\n");
+
+  while(human != 1 && human != 2){
+    printf("(1)Player1?\n(2)Player2?\n");
+    scanf("%d", &human);
+  }
+  */
+
+  //system("clear");
+  printf("Let The Game Begin...\n\n\n");
+  //sleep(2);
+  //system("clear");
+  lim = option_limit(board_pos);
+
+  auth = display(board_pos, GAMEPLAY);
+  printf("\n\n");  
+
+  while(lim != 0){
+    step = get_pos(lim, board_pos, auth);
+    if(comp2 == 2){
+      //if(step != -1)
+      printf("\nComputer(1) chose %2d\n", step);
+    }
+    else{
+      //if(step != -1)
+      printf("\nComputer(2) chose %2d\n", step);
+    }
+    
+    flag = 1;
+   
+    update_board(step, flag, &board_pos);
+
+    auth = display(board_pos, GAMEPLAY);
+    printf("\n\n");
+    
+    lim = option_limit(board_pos);
+    
+    if(lim != 0){
+      step = get_pos(lim, board_pos, auth);
+      if(comp2 == 2){
+	//if(step != -1)
+	printf("\nComputer(2) chose %2d\n", step);
+      }
+      else{
+	//if(step != -1)
+	  printf("\nComputer(1) chose %2d\n", step);
+      }
+      flag = 2;
+      update_board(step, flag, &board_pos);
+
+      auth = display(board_pos, GAMEPLAY);
+      printf("\n\n");
+
+      lim = option_limit(board_pos);
+    }
+  }
+
+  //the results
+  if(board_pos == L)
+    printf("\nThe game is a draw!\n");
+  else{
+    if(comp2 == flag)
+      printf("\nComputer(2) wins!!!!\n");
+    else
+      printf("\nComputer(1) wins!!!!\n");
+  }
+  //the results
+
+  return (board_pos);
+}
+ 
+main()
+{
+  int 
+    valid = 0,   //State of Validity
+    end_point;   //Game's End
+  char
+    dummy;
+
+  L = 15;
+  
+  //system("clear");
+  while(L < 16){
+    printf("Length(16 <= L):\n");
+    scanf("%d", &L);
+  }
+  
+  //system("clear");
+  while(valid == 0){
+    printf("Sub-units:\n", L/4);
+    scanf("%d%d%d", &x, &y, &z);
+    sort_inputs(&x, &y, &z);
+    valid = check_inputs();
+  }
+  
+  zone = malloc(L*sizeof(int));
+  board = malloc(L*sizeof(int));
+  
+  sort_inputs(&x, &y, &z);
+  
+  mark_zones();
+  
+  end_point = gameplay();
+  
+  //prompt();
+
+  //system("clear");
+  printf("The solution - Zone Board!\n");
+  print_zones();
+  printf("\n\nand\n\nThe Game Statistics!\n");
+  board_display(end_point, MAIN);
+  //printf("");
+
+  //system("clear");
+  printf("\n\nThank you for making me play (against me) :P\n");
+   
+  //prompt();
+
+  //system("clear");
+ }
+ 

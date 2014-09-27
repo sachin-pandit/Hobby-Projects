@@ -1,0 +1,13 @@
+extern int a, b;
+
+extern void call_flight(){
+	line( a, b, a+20, b+20 );
+	line( a, b, a, b+40 );
+	line( a+20, b+20, a+80, b+20 );
+	line( a+80, b+20, a+100, b+40 );
+	line( a, b+40, a+100, b+40 );
+	rectangle( a+70, b+24, a+80, b+30 );
+	line( a+100, b+40, a+110, b+40 );
+}  	
+	
+

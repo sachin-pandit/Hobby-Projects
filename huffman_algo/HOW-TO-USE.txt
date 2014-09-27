@@ -1,0 +1,17 @@
+/***********HOW-TO-USE***********/
+
+1. Run '$./compile.sh'
+2. Run '$./a.out filename' to view different stages of Code generation
+3. Run '$./dottydump.sh filename fileformat' to view Huffman Tree
+
+A set of three sample inputs are provided in the folder ./ip
+--------------------------------------------------------------------------
+e.g:
+
+$./compile.sh
+
+$./a.out ./ip/ip1
+OR
+$./dottydump.sh ./ip/ip1 png
+
+/********************************/

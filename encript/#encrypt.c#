@@ -1,0 +1,15 @@
+#include<stdio.h>
+
+main()
+{
+  char *text, *enc;
+  int i=0, len;
+
+  text = (char *)calloc(i+1, sizeof(char));
+  while((c = getchar()) != EOF){
+    text = (char *)realloc(text, (i+1)*sizeof(char));
+    text[i++] = c;
+  }
+
+  text -> ascii -> binary
+and reverse

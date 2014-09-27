@@ -1,0 +1,115 @@
+LENGTH CONQUER
+-Played by Two Players
+-Alternate Turns
+-Goal is to cover a total length in a scale
+-To achieve the goal three small scales are used
+-Each Player chooses one of the three small scales each time
+-Condition (1):If the whole scale is covered exactly then the game is a draw
+-Condition (2):Else the Player who covered the scale last is the winner
+
+
+First, the zone board is created for future reference during the gameplay.
+To do this, the last step of the board is marked away as DRAW zone since 
+it satisfies the Condition (1). 
+
+Moving down from the L'th position, down to L-x+1 'th position, all positions 
+are markes SAFE. This is because, none of the sub units can be chosen to fill
+the board. Hence, the one who enters the position in between L-x and L wins 
+(i.e he is the the player who can satisfy the Condition (2) ).
+
+Now, L-x 'th position is marked DRAW, since it leads to L, which results in a DRAW.
+
+Now, the safety of those positions below L-x, depends on the positions marked until 
+now. Marking these with zones, namely SAFE, UNSAFE and DRAW, is determined by the 
+following rules.. ('Leading' implies moving to another position from the current
+position by adding any one of the three sub-units - x or y or z)..
+-If the current position leads to at-least one SAFE zone,
+ it is an UNSAFE zone.
+-Else if it leads to atleast one DRAW zone,
+ it is a DRAW zone. (*)
+-Else (i.e, if it leads to all UNSAFE zones),
+ it is a SAFE zone.
+
+(*) - Because, I have assumed that, in the worst case, the opponent is intelligent
+enough to use this oppurtunity, to remain now onwards in DRAW zones only.
+
+
+This marking is made with the help of encoding all the three moves(+x, +y, +z)
+into a unique priority value. In the coding part, the values given to the three
+zones are as follows -
+SAFE   - 2
+DRAW   - 1
+UNSAFE - 0
+
+Let the three different paths from a given position, P,  lead to three distinct positions -
+p1(for +x), 
+p2(for +y),
+p3(for +z).
+
+Since the marking is being done in reverse order (from L to 1), zones of p1, p2, p3 are
+already known. So, based on the zones of p1,2,3 , P's zone-value is calculated like this :
+P = 10^p1 + 10^p2 + 10^p3
+
+e.g 1)
+Suppose, p1 is in SAFE zone, p2 and p3 are in DRAW zones, then, 
+P1 = 100 + 10 + 10 = 120.
+
+e.g 2)
+Suppose, p1 is in DRAW zone, p2 is in SAFE zone, p3 is in UNSAFE zone, then,
+P2 = 10 + 100 + 1 = 111.
+
+In e.g 2) there is a chance of opponent going into p3(UNSAFE), which is better for us, 
+compared to e.g 1). Hence, P2 is more preferable to P1 while playing the game. Also, P2 < P1, 
+i.e, priority value of P2 is lesser than P1. So, the lower the priority value, the higher is
+its priority. 
+
+A Priority Map is given below showing all possibile priority values generated.
+S => SAFE, D => DRAW, U => UNSAFE
+The zones inside parenthesis are those to which, the current position leads.
+In other words, the representation is like P(p1,p2,p3).
+
+
+priority map:
+
+  priority is inversely proportional to priority value
+  
+  single choice:  (if only +x is allowed)
+  S(1U) - 1  
+  D(1D) - 10
+  U(1S) - 100
+
+  
+  double choice:  (if only +x and +y is allowed)
+  S(2U) - 2
+  
+  D(1D,1U) - 11
+  D(2D) - 20
+
+  U(1S,1U) - 101
+  U(1S,1D) - 110
+  U(2S) - 200
+
+  
+  triple choice:  (if +x, +y, +z, all are allowed)
+  S(3U) - 3
+  
+  D(1D,2U) - 12
+  D(2D,1U) - 21
+  D(3D) - 30
+
+  U(1S,2U) - 102
+  U(1S,1D,1U) - 111
+  U(1S,2D) - 120
+  U(2S,1U) - 201
+  U(2S,1D) - 210
+  U(3S) - 300
+
+
+From the above mapping, it can be observed that, 
+0   <  SAFE   <  10
+10  <= DRAW   <  100
+100 <= UNSAFE <= 300
+
+Using this, decision making is made easier for the computer during the gameplay.
+The position with least priority-value is chosen as computer's move!
+

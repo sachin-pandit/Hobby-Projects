@@ -1,0 +1,10 @@
+#!/bin/sh
+
+count=$1
+
+while [ $count -gt 0 ]
+do
+	var=$($random%26
+	 >> "text.text"
+        count=$(expr $count-1)
+done	 

@@ -1,0 +1,23 @@
+#include<stdio.h>
+#include<graphics.h>
+#include "call_flight.c"
+#include "flight_control.c"
+#include "objects.c"
+
+char c = 'x';
+pthread_t t1, t2;
+int a = 100, b = 100;
+
+
+void main()
+{
+	int gd = DETECT, gc;
+	int i = 100, j = 100, err1, err2;
+	initgraph( &gd, &gc, "");
+	call_flight( i , j);
+	err1 = pthread_create(&t1, NULL, &objects, NULL);	
+	err2 = pthread_create(&t2, NULL, &flight_control, NULL);
+	getchar();
+
+}
+
